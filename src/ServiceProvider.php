@@ -1,11 +1,11 @@
 <?php
 
-namespace HansSchouten\LaravelPageBuilder;
+namespace Juhara\LaravelPageBuilder;
 
 use Illuminate\Support\Facades\Schema;
-use HansSchouten\LaravelPageBuilder\Commands\CreateTheme;
-use HansSchouten\LaravelPageBuilder\Commands\PublishDemo;
-use HansSchouten\LaravelPageBuilder\Commands\PublishTheme;
+use Juhara\LaravelPageBuilder\Commands\CreateTheme;
+use Juhara\LaravelPageBuilder\Commands\PublishDemo;
+use Juhara\LaravelPageBuilder\Commands\PublishTheme;
 use PHPageBuilder\PHPageBuilder;
 use Exception;
 
@@ -30,7 +30,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
-        
+
         if (Schema::hasTable(config('pagebuilder.storage.database.prefix').'settings')) {
             if ($this->app->runningInConsole()) {
                 $this->commands([
@@ -39,7 +39,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                     PublishDemo::class,
                 ]);
             } elseif (empty(config('pagebuilder'))) {
-                throw new Exception("No PHPageBuilder config found, please run: php artisan vendor:publish --provider=\"HansSchouten\LaravelPageBuilder\ServiceProvider\" --tag=config");
+                throw new Exception("No PHPageBuilder config found, please run: php artisan vendor:publish --provider=\"Juhara\LaravelPageBuilder\ServiceProvider\" --tag=config");
             }
 
             // register singleton phpPageBuilder (this ensures phpb_ helpers have the right config without first manually creating a PHPageBuilder instance)

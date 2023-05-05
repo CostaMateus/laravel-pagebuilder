@@ -1,9 +1,9 @@
 <?php
 
-namespace HansSchouten\LaravelPageBuilder;
+namespace Juhara\LaravelPageBuilder;
 
 /**
- * @see \HansSchouten\LaravelPageBuilder\LaravelPageBuilder
+ * @see \Juhara\LaravelPageBuilder\LaravelPageBuilder
  */
 class Facade extends \Illuminate\Support\Facades\Facade
 {
